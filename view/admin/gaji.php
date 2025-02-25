@@ -49,20 +49,19 @@
             <option value="">Pilih Bulan</option>
             <?php
             $bulan = [
-                "Januari" => "Januari",
-                "Februari" => "Februari",
-                "Maret" => "Maret",
-                "April" => "April",
-                "Mei" => "Mei",
-                "Juni" => "Juni",
-                "Juli" => "Juli",
-                "Agustus" => "Agustus",
-                "September" => "September",
-                "Oktober" => "Oktober",
-                "November" => "November",
-                "Desember" => "Desember"
-            ];
-
+              "Januari" => "Januari",
+              "Februari" => "Februari",
+              "Maret" => "Maret",
+              "April" => "April",
+              "Mei" => "Mei",
+              "Juni" => "Juni",
+              "Juli" => "Juli",
+              "Agustus" => "Agustus",
+              "September" => "September",
+              "Oktober" => "Oktober",
+              "November" => "November",
+              "Desember" => "Desember",
+          ];
             foreach ($bulan as $nilai => $nama) {
                 echo "<option value='$nilai'>$nama</option>";
             }
@@ -70,6 +69,8 @@
           </select>
         </div>
       </div>
+
+          
           <div id="noDataMessage" class="alert alert-warning text-center mt-3" style="display: none;">
             Data tidak ditemukan.
           </div>
@@ -94,7 +95,7 @@
                 $query = "SELECT * FROM gaji INNER JOIN pegawai ON gaji.id_pegawai = pegawai.id_pegawai";
                 $result = mysqli_query($db, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr data-tahun='" . $row['tahun'] . "' data-bulan='" . $row['bulan'] . "' style='display: none;'>";
+                  echo "<tr data-tahun='{$row['tahun']}' data-bulan='{$row['bulan']}' style='display: none;'>";
                   echo "<td class='nomor'></td>";
                   echo "<td>" . $row['nama'] . "</td>";
                   echo "<td>" . $row['gaji_pegawai'] . "</td>";
@@ -115,7 +116,7 @@
               </tbody>
             </table>
           </div>
-        </div>
+        </>
       </div>
     </div>
 
@@ -328,7 +329,7 @@ function applyFilters() {
         }
     });
 
-    s
+    
     if (hasData) {
         table.style.display = "table";
     } else {
