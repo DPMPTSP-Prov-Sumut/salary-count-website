@@ -103,7 +103,7 @@
                   echo "<td>" . $row['tahun'] . "</td>";
                   echo "<td>" . $row['bulan'] . "</td>";
                   echo "<td>
-                          <a href='karyawan.php?edit=" . $row['id_pegawai'] . "' title='Edit' class='btn btn-primary btn-sm btn-circle'>
+                          <a href='gaji.php?edit=" . $row['id_pegawai'] . "' title='Edit' class='btn btn-primary btn-sm btn-circle'>
                             <i class='fas fa-pencil-alt'></i>
                           </a>
                           <a data-toggle='modal' data-target='#hapusModal" . $row['id_pegawai'] . "' href='#' title='Hapus' class='btn btn-danger btn-circle btn-sm'>
