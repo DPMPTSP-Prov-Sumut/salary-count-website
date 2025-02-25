@@ -157,18 +157,39 @@
                   
                   echo "</tr>";
                   $counter++;
+
+                  echo '
+                  <div class="modal fade" id="hapusModal' . $row['id_gaji'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Hapus Data Gaji</h5>
+                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Apakah anda yakin ingin menghapus data gaji untuk pegawai "' . $row['nama'] . '"?
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                          <a href="../../controller/admin/gaji.php?hapus_id=' . $row['id_gaji'] . '" class="btn btn-danger">Hapus Sekarang</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>';
                 }
                 ?>
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>
-
-    <?php
-    if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
-      echo '
+      </div>
+      <?php
+      if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
+        echo '
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <span class="float-left" style="padding-top:5px">
@@ -253,9 +274,9 @@
     ?>
   </div>
 
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
   <script src="../../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
