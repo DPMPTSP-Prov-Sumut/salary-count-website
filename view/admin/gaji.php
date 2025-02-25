@@ -30,6 +30,8 @@
           <a href="gaji.php?aksi=tambah_data"><span class="btn btn-primary btn-sm float-right" style="border:1px solid blue">Tambah Data</span></a>
         </div>
         <div class="card-body">
+        <div style="display: flex; gap: 10px; align-items: center;">
+        <div>
           <label for="filterTahun">Filter Tahun:</label>
           <select id="filterTahun" class="form-control" style="width: 200px;">
             <option value="">Pilih Tahun</option>
@@ -40,8 +42,36 @@
             }
             ?>
           </select>
+        </div>
+        <div style="margin-left: 2cm;">
+          <label for="filterBulan">Filter Bulan:</label>
+          <select id="filterBulan" class="form-control" style="width: 200px;">
+            <option value="">Pilih Bulan</option>
+            <?php
+            $bulan = [
+                "Januari" => "Januari",
+                "Februari" => "Februari",
+                "Maret" => "Maret",
+                "April" => "April",
+                "Mei" => "Mei",
+                "Juni" => "Juni",
+                "Juli" => "Juli",
+                "Agustus" => "Agustus",
+                "September" => "September",
+                "Oktober" => "Oktober",
+                "November" => "November",
+                "Desember" => "Desember"
+            ];
+
+            foreach ($bulan as $nilai => $nama) {
+                echo "<option value='$nilai'>$nama</option>";
+            }
+            ?>
+          </select>
+        </div>
+      </div>
           <div id="noDataMessage" class="alert alert-warning text-center mt-3" style="display: none;">
-            Data tidak ditemukan untuk tahun yang dipilih.
+            Data tidak ditemukan.
           </div>
           <div id="messagePlaceholder" class="alert alert-info text-center mt-3">
             Silakan pilih tahun untuk menampilkan data.
@@ -64,7 +94,7 @@
                 $query = "SELECT * FROM gaji INNER JOIN pegawai ON gaji.id_pegawai = pegawai.id_pegawai";
                 $result = mysqli_query($db, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
-                  echo "<tr data-tahun='" . $row['tahun'] . "' style='display: none;'>";
+                  echo "<tr data-tahun='" . $row['tahun'] . "' data-bulan='" . $row['bulan'] . "' style='display: none;'>";
                   echo "<td class='nomor'></td>";
                   echo "<td>" . $row['nama'] . "</td>";
                   echo "<td>" . $row['gaji_pegawai'] . "</td>";
@@ -228,58 +258,84 @@
   <script src="../../assets/js/demo/datatables-demo.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var filterTahun = document.getElementById("filterTahun");
-        var selectedYear = localStorage.getItem("selectedYear");
+    const filterTahun = document.getElementById("filterTahun");
+    const filterBulan = document.getElementById("filterBulan");
+    const selectedYear = localStorage.getItem("selectedYear");
+    const selectedMonth = localStorage.getItem("selectedMonth");
 
-        if (selectedYear) {
-            filterTahun.value = selectedYear;
-        }
+    
+    if (selectedYear) {
+        filterTahun.value = selectedYear;
+    }
+    if (selectedMonth) {
+        filterBulan.value = selectedMonth;
+    }
 
-        filterTahun.addEventListener("change", function () {
-            localStorage.setItem("selectedYear", this.value);
-            filterTableByYear(this.value);
-        });
+    
+    filterTahun.addEventListener("change", function () {
+        localStorage.setItem("selectedYear", this.value);
+        applyFilters();
+    });
 
-        if (selectedYear) {
-            filterTableByYear(selectedYear);
+    filterBulan.addEventListener("change", function () {
+        localStorage.setItem("selectedMonth", this.value);
+        applyFilters();
+    });
+
+    
+    if (selectedYear || selectedMonth) {
+        applyFilters();
+    }
+});
+
+
+function applyFilters() {
+    const selectedYear = document.getElementById("filterTahun").value;
+    const selectedMonth = document.getElementById("filterBulan").value;
+    
+    const table = document.getElementById("dataTable");
+    const rows = table.querySelectorAll("tbody tr");
+    const messagePlaceholder = document.getElementById("messagePlaceholder");
+    const noDataMessage = document.getElementById("noDataMessage");
+
+    
+    table.style.display = "none";
+    messagePlaceholder.style.display = "none";
+    noDataMessage.style.display = "none";
+
+    
+    if (!selectedYear && !selectedMonth) {
+        messagePlaceholder.style.display = "block";
+        return;
+    }
+
+    
+    let nomor = 1;
+    let hasData = false;
+
+    rows.forEach(function (row) {
+        const rowYear = row.getAttribute("data-tahun");
+        const rowMonth = row.getAttribute("data-bulan");
+        const yearMatch = !selectedYear || rowYear === selectedYear;
+        const monthMatch = !selectedMonth || rowMonth === selectedMonth;
+
+        if (yearMatch && monthMatch) {
+            row.style.display = "";
+            row.querySelector(".nomor").textContent = nomor++;
+            hasData = true;
+        } else {
+            row.style.display = "none";
         }
     });
 
-    function filterTableByYear(selectedYear) {
-        var table = document.getElementById("dataTable");
-        var rows = table.querySelectorAll("tbody tr");
-        var messagePlaceholder = document.getElementById("messagePlaceholder");
-        var noDataMessage = document.getElementById("noDataMessage");
-
-        if (selectedYear) {
-            table.style.display = "table";
-            messagePlaceholder.style.display = "none";
-            noDataMessage.style.display = "none";
-
-            let nomor = 1;
-            let hasData = false;
-            rows.forEach(function (row) {
-                var tahun = row.getAttribute("data-tahun");
-                if (tahun === selectedYear) {
-                    row.style.display = "";
-                    row.querySelector(".nomor").textContent = nomor++;
-                    hasData = true;
-                } else {
-                    row.style.display = "none";
-                }
-            });
-
-            if (!hasData) {
-                table.style.display = "none";
-                noDataMessage.style.display = "block";
-            }
-        } else {
-            table.style.display = "none";
-            messagePlaceholder.style.display = "block";
-            noDataMessage.style.display = "none";
-        }
+    s
+    if (hasData) {
+        table.style.display = "table";
+    } else {
+        noDataMessage.style.display = "block";
     }
-  </script>
+}
+</script>
 </body>
 
 </html>
