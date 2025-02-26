@@ -159,11 +159,11 @@
                   <label>Mulai Kerja <span style="color:red">*</span></label>
                   <select name="mulai_kerja" class="form-control" required>
                     <option disabled selected>Pilih Tahun</option>';
-                    $tahunSekarang = date("Y");
-                    for ($i = $tahunSekarang; $i >= 2011; $i--) {
-                      echo "<option value=$i >$i</option>";
-                    }
-                echo ' </select>
+      $tahunSekarang = date("Y");
+      for ($i = $tahunSekarang; $i >= 2011; $i--) {
+        echo "<option value=$i >$i</option>";
+      }
+      echo ' </select>
                 </div>
 		          </div>
 		      </div>
@@ -270,8 +270,6 @@
 
   </div>
   <!-- /.container-fluid -->
-
-  </div>
 
   </div>
   <!-- End of Content Wrapper -->

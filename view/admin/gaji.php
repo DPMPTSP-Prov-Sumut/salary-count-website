@@ -13,51 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
   <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link href="../css/input-group.css" rel="stylesheet">
-  <style>
-    .table-wrapper {
-      overflow-x: auto;
-      max-width: 100%;
-    }
-    .sticky-column {
-      position: sticky;
-      left: 0;
-      background-color: #fff;
-      z-index: 1;
-      border-right: 2px solid #e3e6f0;
-    }
-    .sticky-column-2 {
-      position: sticky;
-      left: 50px;
-      background-color: #fff;
-      z-index: 1;
-      border-right: 2px solid #e3e6f0;
-    }
-    .month-header {
-      text-align: center;
-      font-weight: bold;
-      background-color: #4e73df;
-      color: white;
-    }
-    .totals-header {
-      text-align: center;
-      font-weight: bold;
-      background-color: #1cc88a;
-      color: white;
-    }
-    .averages-header {
-    text-align: center;
-    font-weight: bold;
-    background-color: #f6c23e; /* Yellow color for average */
-    color: white;
-    }
-    .action-header {
-      text-align: center;
-      font-weight: bold;
-      background-color: #e44e3c;
-      color: white;
-    }
-  </style>
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -901,22 +857,6 @@
   </script>
 
   <!-- Add CSS for the total and average rows -->
-<style>
-  /* Add to your existing styles */
-  .grand-total-row {
-    border-top: 2px solid #4e73df;
-  }
-  .grand-average-row {
-    border-bottom: 2px solid #4e73df;
-  }
-  /* Make the sticky columns work for the footer as well */
-  tfoot .sticky-column,
-  tfoot .sticky-column-2 {
-    position: sticky;
-    background-color: inherit;
-    z-index: 1;
-  }
-</style>
 </body>
 
 </html>
