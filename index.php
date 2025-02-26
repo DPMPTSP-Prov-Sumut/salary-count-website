@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" type="image/jpeg" href="../../assets/img/usericon.jpg" /> 
+  <link rel="icon" type="image/jpeg" href="../../assets/img/ptsp.png" /> 
 
   <title>Dashboard - Erporate Employee Attendance System</title>
 
