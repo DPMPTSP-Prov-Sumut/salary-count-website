@@ -1,13 +1,10 @@
 <?php
 include '../koneksi.php';
 
-// Handle delete requests
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $id_pegawai = $_POST['id_pegawai'];
     
-    // Check if it's a specific month/year delete or all for a year
     if (isset($_POST['all_tahun']) && !empty($_POST['all_tahun'])) {
-        // Delete all entries for this employee in the selected year
         $tahun = $_POST['all_tahun'];
         $queryDel = "DELETE FROM gaji WHERE id_pegawai = ? AND tahun = ?";
         $stmtDel = mysqli_prepare($db, $queryDel);
@@ -27,7 +24,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
         }
         mysqli_stmt_close($stmtDel);
     } else {
-        // Delete specific month/year entry
         $bulan = $_POST['bulan'];
         $tahun = $_POST['tahun'];
         
@@ -53,7 +49,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     exit;
 }
 
-// Handle individual record deletion via GET (existing code)
 if (isset($_GET['hapus_id']) && !empty($_GET['hapus_id'])) {
     $hapus_id = $_GET['hapus_id'];
     $queryDel = "DELETE FROM gaji WHERE id_gaji = ?";
@@ -67,7 +62,6 @@ if (isset($_GET['hapus_id']) && !empty($_GET['hapus_id'])) {
     exit;
 }
 
-// Handle data submission (add/edit)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_pegawai   = $_POST['id_pegawai'];
     $bulan        = $_POST['bulan'];
@@ -87,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     if (isset($_POST['id_gaji']) && !empty($_POST['id_gaji'])) {
-        // Update existing record
         $id_gaji = $_POST['id_gaji'];
         $queryUp = "UPDATE gaji SET id_pegawai = ?, bulan = ?, tahun = ?, gaji_pegawai = ?, pph = ? WHERE id_gaji = ?";
         $stmtUp = mysqli_prepare($db, $queryUp);
@@ -106,7 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         mysqli_stmt_close($stmtUp);
     } else {
-        // Check if record already exists
         $checkQuery = "SELECT id_gaji FROM gaji WHERE id_pegawai = ? AND bulan = ? AND tahun = ?";
         $checkStmt = mysqli_prepare($db, $checkQuery);
         mysqli_stmt_bind_param($checkStmt, "iss", $id_pegawai, $bulan, $tahun);
@@ -114,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_store_result($checkStmt);
         
         if (mysqli_stmt_num_rows($checkStmt) > 0) {
-            // Record exists, update it
             mysqli_stmt_bind_result($checkStmt, $existing_id_gaji);
             mysqli_stmt_fetch($checkStmt);
             mysqli_stmt_close($checkStmt);
@@ -136,7 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             mysqli_stmt_close($stmtUp);
         } else {
-            // Insert new record
             mysqli_stmt_close($checkStmt);
             
             $queryIn = "INSERT INTO gaji (id_pegawai, bulan, tahun, gaji_pegawai, pph) VALUES (?, ?, ?, ?, ?)";
