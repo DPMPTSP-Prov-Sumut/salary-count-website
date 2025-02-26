@@ -135,8 +135,8 @@
     if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
       echo '
           	
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
+        <div class="card shadow mb-4">
+        <div class="card-header py-3">
 			  <span class="float-left" style="padding-top:5px">
 				<h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Tambah Data Karyawan</h5>
 			  </span>
