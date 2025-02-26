@@ -145,7 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             if (mysqli_stmt_execute($stmtIn)) {
                 echo "<script>
-                        alert('Data gaji berhasil ditambahkan!');
                         window.location.href='../../view/admin/gaji.php';
                       </script>";
             } else {

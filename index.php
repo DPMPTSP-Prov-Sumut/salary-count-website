@@ -65,90 +65,9 @@
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-md-4 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">TOTAL JABATAN</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10 divisi</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-user-circle fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-md-4 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">TOTAL DATA ABSENSI</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10 records</div>
-                        </div>
-                        <div class="col">
-                        
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-star fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
-
-          <div class="row">
 
             <!-- Content Column -->
-            
-
-            <div class="col-md-12 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Informasi Layanan</h6>
-                </div>
-
-                <div class="card-body">
-                  
-                  <p><b>Status User : <span style="color:green">HRD</span></b></p>
-                  <p>Anda memiliki semua hak akses pada aplikasi.</p>
-                </div>
-
-              </div>
-
-              <!-- Approach -->
-              
-
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; <a href="https://www.linkedin.com/in/muhammad-fuad-fachrudin/" style="text-decoration: none;color:#858796" target="_blank">Muhammad Fuad Fachrudin</a>&nbsp; | &nbsp;Instagram : <a href="https://www.instagram.com/muhammadfuadfachrudin/" style="text-decoration: none;color:#858796" target="_blank">@muhammadfuadfachrudin</a></span>
-          </div>
-        </div>
-      </footer>
       <!-- End of Footer -->
 
     </div>
