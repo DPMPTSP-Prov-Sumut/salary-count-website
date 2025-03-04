@@ -57,6 +57,7 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Jabatan</th>
+                  <th>Domsisili</th>
                   <th>Mulai Kerja</th>
                   <th>File PKWT/PKWIT</th>
                   <th>Action</th>
@@ -80,6 +81,7 @@
                     <td><?= $no++; ?></td>
                     <td><?= $row2['nama']; ?></td>
                     <td><?= $row2['jabatan']; ?></td>
+                    <td><?= $row2['alamat_domisili']; ?></td>
                     <td><?= $row2['mulai_kerja']; ?></td>
                     <td>
                       <a href="../../controller/admin/view_pdf.php?id_pegawai=<?= $row2['id_pegawai']; ?>" target="_blank" style="text-decoration: none;">
@@ -108,7 +110,7 @@
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">ID Pegawai <?= $row2['id_pegawai']; ?></h5>
                           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
+                            <span aria-hidden="true"></span>
                           </button>
                         </div>
                         <div class="modal-body">
@@ -132,63 +134,74 @@
 
     <!-- Tambah Data Karyawan -->
     <?php
-    if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
-      echo '
-          	
-        <div class="card shadow mb-4">
+   if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
+    echo '
+      <div class="card shadow mb-4">
         <div class="card-header py-3">
-			  <span class="float-left" style="padding-top:5px">
-				<h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Tambah Data Karyawan</h5>
-			  </span>
+          <span class="float-left" style="padding-top:5px">
+            <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Tambah Data Karyawan</h5>
+          </span>
+        </div>
+        <div class="card-body">
+          <form action="../../controller/admin/karyawan.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label>Nama Lengkap <span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Lengkap" required="">
             </div>
-            <div class="card-body">
-              <form action="../../controller/admin/karyawan.php" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-              	<label>Nama Lengkap <span style="color:red">*</span></label>
-                <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Lengkap" required="">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Jabatan <span style="color:red">*</span></label>
+                  <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" required="">
+                </div>
               </div>
-              <div class="row">
-              	<div class="col-md-4">
-		              <div class="form-group">
-		              	<label>Jabatan <span style="color:red">*</span></label>
-		                <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" required="">
-		              </div>
-		            </div>
-		          <div class="col-md-4">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Domisili <span style="color:red">*</span></label>
+                  <select name="domisili" class="form-control" required>
+                    <option disabled selected>Pilih Domisili</option>
+                    <option value="Medan">Medan, Sumatera Utara</option>
+                    <option value="Deli Serdang">Deli Serdang, Sumatera Utara</option>
+                    <option value="Tebing Tinggi">Tebing Tinggi, Sumatera Utara</option>
+                    <option value="Pematang Siantar">Pematang Siantar, Sumatera Utara</option>
+                    <option value="Binjai">Binjai, Sumatera Utara</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
                 <div class="form-group">
                   <label>Mulai Kerja <span style="color:red">*</span></label>
                   <select name="mulai_kerja" class="form-control" required>
                     <option disabled selected>Pilih Tahun</option>';
-      $tahunSekarang = date("Y");
-      for ($i = $tahunSekarang; $i >= 2011; $i--) {
-        echo "<option value=$i >$i</option>";
-      }
-      echo ' </select>
-                </div>
-		          </div>
-		      </div>
-              <div class="form-group">
-                <label>Unggah Dokumen <span style="color:red">*</span></label>
-                <input type="file" class="form-control border-0" id="formFile" name="file_pkwt" accept=".pdf" required>
-                <small class="form-text text-muted">Format yang diperbolehkan: PDF.</small>
-              </div>
-
-              <div class="form-group">
-              	<div class="row">
-              		<div class="col-md-6">
-              			<button type="submit" style="width:100%" class="btn btn-primary">Tambah Karyawan</button>
-              		</div>
-              		<div class="col-md-6">
-              			<a href="karyawan.php"><span style="width:100%" class="btn btn-danger">Batalkan</span></a>
-              		</div>
-              	</div>
-              </div>
-          	  </form>
-            </div>
-          </div>';
-
-      echo '<script>document.getElementById("dataKaryawan").innerHTML = "";</script>';
+    $tahunSekarang = date("Y");
+    for ($i = $tahunSekarang; $i >= 2011; $i--) {
+      echo "<option value=$i >$i</option>";
     }
+    echo '</select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Unggah Dokumen <span style="color:red">*</span></label>
+              <input type="file" class="form-control border-0" id="formFile" name="file_pkwt" accept=".pdf" required>
+              <small class="form-text text-muted">Format yang diperbolehkan: PDF.</small>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="submit" style="width:100%" class="btn btn-primary">Tambah Karyawan</button>
+                </div>
+                <div class="col-md-6">
+                  <a href="karyawan.php"><span style="width:100%" class="btn btn-danger">Batalkan</span></a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>';
+  
+    echo '<script>document.getElementById("dataKaryawan").innerHTML = "";</script>';
+  }
     ?>
 
     <!-- Edit Data Karyawan -->
