@@ -57,7 +57,7 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Jabatan</th>
-                  <th>Domsisili</th>
+                  <th>Domisili</th>
                   <th>Mulai Kerja</th>
                   <th>File PKWT/PKWIT</th>
                   <th>Action</th>
@@ -239,6 +239,19 @@
 		                <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="' . $row4['jabatan'] . '" required="">
 		              </div>
 		            </div>
+                 <div class="col-md-4">
+                <div class="form-group">
+                  <label>Domisili <span style="color:red">*</span></label>
+                  <select name="domisili" class="form-control" required>
+                    <option disabled selected>Pilih Domisili</option>
+                    <option value="Medan">Medan, Sumatera Utara</option>
+                    <option value="Deli Serdang">Deli Serdang, Sumatera Utara</option>
+                    <option value="Tebing Tinggi">Tebing Tinggi, Sumatera Utara</option>
+                    <option value="Pematang Siantar">Pematang Siantar, Sumatera Utara</option>
+                    <option value="Binjai">Binjai, Sumatera Utara</option>
+                  </select>
+                </div>
+                </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label>Mulai Kerja <span style="color:red">*</span></label>
