@@ -53,10 +53,16 @@
   </li>
 
     <!-- Nav Item - Data Jabatan -->
-    <li class="nav-item <?= ($current_page == 'desa.php') ? 'active' : '' ?>">
+  <li class="nav-item <?= ($current_page == 'desa.php') ? 'active' : '' ?>">
     <a class="nav-link" href="<?= $base_path ?>desa.php">
-      <i class="fa-solid fa-location-dot"></i>
-      <span>Data Desa</span></a>
+    <i class="fas fa-map"></i>
+      <span>Data Wilayah</span></a>
+  </li>
+
+  <li class="nav-item <?= ($current_page == 'industry.php') ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= $base_path ?>industry.php">
+    <i class="fas fa-industry"></i>
+      <span>Data Industri</span></a>
   </li>
 
 

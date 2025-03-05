@@ -57,7 +57,7 @@
                   <th>No</th>
                   <th>Nama</th>
                   <th>Jabatan</th>
-                  <th>Domsisili</th>
+                  <th>Domisili</th>
                   <th>Mulai Kerja</th>
                   <th>File PKWT/PKWIT</th>
                   <th>Action</th>
