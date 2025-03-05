@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'] ?? '';
     $jabatan = $_POST['jabatan'] ?? '';
     $mulai_kerja = $_POST['mulai_kerja'] ?? '';
+    $alamat_domisili = $_POST['domisili'] ?? '';
     if (isset($_FILES['file_pkwt']) && $_FILES['file_pkwt']['error'] == 0) {
       $fileContent = addslashes(file_get_contents($_FILES['file_pkwt']['tmp_name']));
 
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $fileContent = '';
     }
 
-    $query = "UPDATE pegawai SET nama = '$nama', jabatan = '$jabatan', mulai_kerja = '$mulai_kerja', file_pkwt = '$fileContent', file_pkwt_name = '$originalName' WHERE id_pegawai = '$id_pegawai'";
+    $query = "UPDATE pegawai SET nama = '$nama', jabatan = '$jabatan', mulai_kerja = '$mulai_kerja', alamat_domisili ='$alamat_domisili', file_pkwt = '$fileContent', file_pkwt_name = '$originalName' WHERE id_pegawai = '$id_pegawai'";
     mysqli_query($db, $query);
 
     echo '<script type="text/javascript">';
