@@ -47,7 +47,7 @@
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <span class="float-left" style="padding-top:5px">
-            <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Data Karyawan</h5>
+            <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map" aria-hidden="true"></i> Data Wilayah</h5>
           </span>
           <a href="desa.php?aksi=tambah_data"><span class="btn btn-primary btn-sm float-right" style="border:1px solid blue">Tambah Data</span></a>
         </div>
@@ -150,14 +150,14 @@
       </div>
     </div>
 
-    <!-- Tambah Data Karyawan -->
+    <!-- Tambah Data Wilayah -->
     <?php
     if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
       echo '
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <span class="float-left" style="padding-top:5px">
-        <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Tambah Data Wilayah</h5>
+        <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map" aria-hidden="true"></i> Tambah Data Wilayah</h5>
       </span>
     </div>
     <div class="card-body">
@@ -227,7 +227,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-6">
-              <button type="submit" style="width:100%" class="btn btn-primary">Tambah Karyawan</button>
+              <button type="submit" style="width:100%" class="btn btn-primary">Tambah Data Wilayah</button>
             </div>
             <div class="col-md-6">
               <a href="desa.php"><span style="width:100%" class="btn btn-danger">Batalkan</span></a>
@@ -242,18 +242,16 @@
     }
     ?>
 
-    <!-- Edit Data Karyawan -->
+    <!-- Update Data Wilayah -->
     <?php
     if (isset($_GET['edit'])) {
 
       $edit_id = $_GET['edit'];
 
-      // Ambil data wilayah berdasarkan id_wilayah
       $getWilayah = "SELECT * FROM data_wilayah WHERE id_wilayah = '$edit_id'";
       $resultEdit = mysqli_query($db, $getWilayah);
       $row4 = mysqli_fetch_assoc($resultEdit);
 
-      // Sembunyikan tampilan daftar wilayah
       echo '<script>document.getElementById("dataWilayah").innerHTML = "";</script>';
 
       echo '

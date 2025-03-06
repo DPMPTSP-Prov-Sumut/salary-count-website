@@ -48,7 +48,7 @@
   <!-- Nav Item - Data Jabatan -->
   <li class="nav-item <?= ($current_page == 'gaji.php') ? 'active' : '' ?>">
     <a class="nav-link" href="<?= $base_path ?>gaji.php">
-      <i class="fas fa-fw fa-user-plus"></i>
+    <i class="fas fa-money-bill"></i>
       <span>Data Gaji</span></a>
   </li>
 

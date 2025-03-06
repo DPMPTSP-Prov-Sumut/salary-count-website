@@ -44,7 +44,7 @@
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <span class="float-left" style="padding-top:5px">
-            <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Data Gaji</h5>
+            <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-money-bill" aria-hidden="true"></i> Data Gaji</h5>
           </span>
           <a href="gaji.php?aksi=tambah_data"><span class="btn btn-primary btn-sm float-right" style="border:1px solid blue">Tambah Data</span></a>
         </div>
@@ -196,19 +196,6 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label>Bulan <span style="color:red">*</span></label>
-                                <select id="edit_bulan" name="bulan" class="form-control" required>
-                                  <option disabled selected>Pilih Bulan</option>
-                                  <?php
-                                  foreach ($bulanArray as $bulan) {
-                                    echo "<option value='$bulan'>$bulan</option>";
-                                  }
-                                  ?>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
                                 <label>Tahun <span style="color:red">*</span></label>
                                 <select id="edit_tahun" name="tahun" class="form-control" required>
                                   <option disabled selected>Pilih Tahun</option>
@@ -216,6 +203,20 @@
                                   $tahunSekarang = date("Y");
                                   for ($i = $tahunSekarang; $i >= 2011; $i--) {
                                     echo "<option value=$i>$i</option>";
+                                  }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>Bulan <span style="color:red">*</span></label>
+                                <select id="edit_bulan" name="bulan" class="form-control" required>
+                                  <option disabled selected>Pilih Bulan</option>
+                                  <?php
+                                  foreach ($bulanArray as $bulan) {
+                                    echo "<option value='$bulan'>$bulan</option>";
                                   }
                                   ?>
                                 </select>
@@ -290,20 +291,7 @@
 
                           <div id="specific_delete_options">
                             <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Bulan</label>
-                                  <select id="delete_bulan" name="bulan" class="form-control">
-                                    <option disabled selected>Pilih Bulan</option>
-                                    <?php
-                                    foreach ($bulanArray as $bulan) {
-                                      echo "<option value='$bulan'>$bulan</option>";
-                                    }
-                                    ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Tahun</label>
                                   <select id="delete_tahun" name="tahun" class="form-control">
@@ -312,6 +300,20 @@
                                     $tahunSekarang = date("Y");
                                     for ($i = $tahunSekarang; $i >= 2011; $i--) {
                                       echo "<option value=$i>$i</option>";
+                                    }
+                                    ?>
+                                  </select>
+                                </div>
+                            </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Bulan</label>
+                                  <select id="delete_bulan" name="bulan" class="form-control">
+                                    <option disabled selected>Pilih Bulan</option>
+                                    <?php
+                                    foreach ($bulanArray as $bulan) {
+                                      echo "<option value='$bulan'>$bulan</option>";
                                     }
                                     ?>
                                   </select>
@@ -413,7 +415,7 @@
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <span class="float-left" style="padding-top:5px">
-            <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-users" aria-hidden="true"></i> Tambah Data Gaji</h5>
+            <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-money-bill" aria-hidden="true"></i> Tambah Data Gaji</h5>
           </span>
         </div>
         <div class="card-body">
@@ -430,6 +432,18 @@
       echo ' </select>
             </div>
             <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                  <label>Tahun <span style="color:red">*</span></label>
+                  <select name="tahun" class="form-control" required>
+                    <option disabled selected>Pilih Tahun</option>';
+      $tahunSekarang = date("Y");
+      for ($i = $tahunSekarang; $i >= 2011; $i--) {
+        echo "<option value=$i >$i</option>";
+      }
+      echo ' </select>
+                </div>
+              </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label>Bulan <span style="color:red">*</span></label>
@@ -453,18 +467,6 @@
         echo "<option value='$bulan'>$bulan</option>";
       }
       echo '</select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label>Tahun <span style="color:red">*</span></label>
-                  <select name="tahun" class="form-control" required>
-                    <option disabled selected>Pilih Tahun</option>';
-      $tahunSekarang = date("Y");
-      for ($i = $tahunSekarang; $i >= 2011; $i--) {
-        echo "<option value=$i >$i</option>";
-      }
-      echo ' </select>
                 </div>
               </div>
               <div class="col-md-3">
