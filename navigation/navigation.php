@@ -62,8 +62,24 @@
   <li class="nav-item <?= ($current_page == 'industry.php') ? 'active' : '' ?>">
     <a class="nav-link" href="<?= $base_path ?>industry.php">
     <i class="fas fa-industry"></i>
-      <span>Data Industri</span></a>
+      <span>Data Industri Pionir</span></a>
   </li>
+
+  <li class="nav-item <?= ($current_page == 'bidang_usaha.php') ? 'active' : '' ?>">
+    <a class="nav-link" href="<?= $base_path ?>bidang_usaha.php">
+    <i class="fas fa-industry"></i>
+    <i class="fas fa-plus" style="position: relative; left: -5px;"></i>
+      <span>Tambah Data Bidang Usaha</span></a>
+  </li>
+
+  <li class="nav-item <?= ($current_page == 'jenis_produksi.php') ? 'active' : '' ?>">
+  <a class="nav-link" href="<?= $base_path ?>jenis_produksi.php">
+    <i class="fas fa-boxes"></i>
+    <i class="fas fa-plus" style="position: relative; left: -5px;"></i>
+    <span>Tambah Data Jenis Produksi</span>
+  </a>
+</li>
+
 
 
   <!-- Divider -->
