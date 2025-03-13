@@ -47,7 +47,7 @@
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <span class="float-left" style="padding-top:5px">
-            <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map" aria-hidden="true"></i> Penetapan Daerah tertinggal</h5>
+            <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map-marker-alt"></i> Penetapan Daerah tertinggal</h5>
           </span>
           <a href="daerah_tertinggal.php?aksi=tambah_data"><span class="btn btn-primary btn-sm float-right" style="border:1px solid blue">Tambah Data</span></a>
         </div>
@@ -139,7 +139,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah_data') {
 <div class="card shadow mb-4">
 <div class="card-header py-3">
   <span class="float-left" style="padding-top:5px">
-    <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map" aria-hidden="true"></i> Tambah Data Penetapan Daerah Tertinggal</h5>
+    <h5 class="m-0 font-weight-bold text-primary"><i class="fas fa-map-marker-alt aria-hidden="true"></i> Tambah Data Penetapan Daerah Tertinggal</h5>
   </span>
 </div>
 <div class="card-body">
@@ -206,7 +206,7 @@ if (isset($_GET['edit'])) {
     <div class="card-header py-3">
       <span class="float-left" style="padding-top:5px">
         <h5 class="m-0 font-weight-bold text-primary">
-          <i class="fa fa-map-marker-alt" aria-hidden="true"></i> Update Data Wilayah
+          <i class="fas fa-map-marker-alt aria-hidden="true"></i> Update Data Penetapan Daerah Tertinggal
         </h5>
       </span>
     </div>

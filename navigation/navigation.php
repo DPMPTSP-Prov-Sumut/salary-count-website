@@ -82,8 +82,16 @@
 
 <li class="nav-item <?= ($current_page == 'daerah_tertinggal.php') ? 'active' : '' ?>">
   <a class="nav-link" href="<?= $base_path ?>daerah_tertinggal.php">
-    <i class="fas fa-house-chimney-crack"></i>
+    <i class="fas fa-map-marker-alt"></i>
     <span>Penetapan Daerah Tertinggal</span>
+  </a>
+</li>
+
+
+<li class="nav-item <?= ($current_page == 'kawasan_industri.php') ? 'active' : '' ?>">
+  <a class="nav-link" href="<?= $base_path ?>kawasan_industri.php">
+    <i class="fas fa-building"></i>
+    <span>Kawasan Industri</span>
   </a>
 </li>
 
