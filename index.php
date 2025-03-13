@@ -8,16 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" type="image/jpeg" href="../../assets/img/ptsp.png" /> 
+  <link rel="icon" type="image/jpeg" href="/assets/img/ptsp.png" /> 
 
   <title>Dashboard - Erporate Employee Attendance System</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template-->
-  <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -31,9 +30,17 @@
 
   $resultKaryawan = mysqli_query($db, $semuaKaryawan);
 
+  $semuaWilayah  = "SELECT * FROM data_wilayah";
+
+  $resultWilayah = mysqli_query($db, $semuaWilayah);
+
+  $semuaIndustri  = "SELECT * FROM industri_pionir";
+
+  $resultIndustri = mysqli_query($db, $semuaIndustri);
+
 ?>
 
-        <?php include './navigation/navigation.php' ?>
+        <?php include 'navigation/navigation.php' ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -55,10 +62,42 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">TOTAL KARYAWAN</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($resultKaryawan); ?> orang</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($resultKaryawan); ?> Orang</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">TOTAL DATA WILAYAH</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($resultWilayah); ?> Wilayah</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-map-marker-alt fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">TOTAL DATA INDUSTRI</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($resultIndustri); ?> Industri</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-industry fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -79,14 +118,14 @@
   <!-- Scroll to Top Button-->
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../../assets/js/sb-admin-2.min.js"></script>
+  <script src="/assets/js/sb-admin-2.min.js"></script>
 
 </body>
 
