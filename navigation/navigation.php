@@ -89,7 +89,7 @@
 
 <li class="nav-item <?= ($current_page == 'rtr_kawasan.php') ? 'active' : '' ?>">
   <a class="nav-link" href="<?= $base_path ?>rtr_perbatasan.php">
-    <i class="fa-regular fa-book-atlas"></i>
+    <i class="fas fa-map-marked-alt"></i>
     <span>RTR Kawasan Perbatasan</span>
   </a>
 </li>
